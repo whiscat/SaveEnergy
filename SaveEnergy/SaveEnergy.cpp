@@ -1,4 +1,4 @@
-// SaveEnergy.cpp : ÀÀ¿ë ÇÁ·Î±×·¥¿¡ ´ëÇÑ ÁøÀÔÁ¡À» Á¤ÀÇÇÕ´Ï´Ù.
+// SaveEnergy.cpp : ì‘ìš© í”„ë¡œê·¸ë¨ì— ëŒ€í•œ ì§„ì…ì ì„ ì •ì˜í•©ë‹ˆë‹¤.
 //
 
 #include "stdafx.h"
@@ -6,17 +6,17 @@
 
 #define MAX_LOADSTRING 100
 
-// Àü¿ª º¯¼ö:
-HINSTANCE hInst;								// ÇöÀç ÀÎ½ºÅÏ½ºÀÔ´Ï´Ù.
-TCHAR szTitle[MAX_LOADSTRING];					// Á¦¸ñ Ç¥½ÃÁÙ ÅØ½ºÆ®ÀÔ´Ï´Ù.
-TCHAR szWindowClass[MAX_LOADSTRING];			// ±âº» Ã¢ Å¬·¡½º ÀÌ¸§ÀÔ´Ï´Ù.
+// ì „ì—­ ë³€ìˆ˜:
+HINSTANCE hInst;								// í˜„ì¬ ì¸ìŠ¤í„´ìŠ¤ì…ë‹ˆë‹¤.
+TCHAR szTitle[MAX_LOADSTRING];					// ì œëª© í‘œì‹œì¤„ í…ìŠ¤íŠ¸ì…ë‹ˆë‹¤.
+TCHAR szWindowClass[MAX_LOADSTRING];			// ê¸°ë³¸ ì°½ í´ë˜ìŠ¤ ì´ë¦„ì…ë‹ˆë‹¤.
 HMENU g_hMenu;
 
 const int MONITOR_ON = -1;
 const int MONITOR_OFF = 2;
 const int MONITOR_STANBY = 1;
 
-// ÀÌ ÄÚµå ¸ğµâ¿¡ µé¾î ÀÖ´Â ÇÔ¼öÀÇ Á¤¹æÇâ ¼±¾ğÀÔ´Ï´Ù.
+// ì´ ì½”ë“œ ëª¨ë“ˆì— ë“¤ì–´ ìˆëŠ” í•¨ìˆ˜ì˜ ì •ë°©í–¥ ì„ ì–¸ì…ë‹ˆë‹¤.
 ATOM				MyRegisterClass(HINSTANCE hInstance);
 BOOL				InitInstance(HINSTANCE, int);
 LRESULT CALLBACK	WndProc(HWND, UINT, WPARAM, LPARAM);
@@ -30,16 +30,16 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 	UNREFERENCED_PARAMETER(hPrevInstance);
 	UNREFERENCED_PARAMETER(lpCmdLine);
 
- 	// TODO: ¿©±â¿¡ ÄÚµå¸¦ ÀÔ·ÂÇÕ´Ï´Ù.
+ 	// TODO: ì—¬ê¸°ì— ì½”ë“œë¥¼ ì…ë ¥í•©ë‹ˆë‹¤.
 	MSG msg;
 	HACCEL hAccelTable;
 
-	// Àü¿ª ¹®ÀÚ¿­À» ÃÊ±âÈ­ÇÕ´Ï´Ù.
+	// ì „ì—­ ë¬¸ìì—´ì„ ì´ˆê¸°í™”í•©ë‹ˆë‹¤.
 	LoadString(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
 	LoadString(hInstance, IDC_SaveEnergy, szWindowClass, MAX_LOADSTRING);
 	MyRegisterClass(hInstance);
 
-	// ÀÀ¿ë ÇÁ·Î±×·¥ ÃÊ±âÈ­¸¦ ¼öÇàÇÕ´Ï´Ù.
+	// ì‘ìš© í”„ë¡œê·¸ë¨ ì´ˆê¸°í™”ë¥¼ ìˆ˜í–‰í•©ë‹ˆë‹¤.
 	if (!InitInstance (hInstance, nCmdShow))
 	{
 		return FALSE;
@@ -47,7 +47,7 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 
 	hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_SaveEnergy));
 
-	// ±âº» ¸Ş½ÃÁö ·çÇÁÀÔ´Ï´Ù.
+	// ê¸°ë³¸ ë©”ì‹œì§€ ë£¨í”„ì…ë‹ˆë‹¤.
 	while (GetMessage(&msg, NULL, 0, 0))
 	{
 		if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
@@ -63,9 +63,9 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 
 
 //
-//  ÇÔ¼ö: MyRegisterClass()
+//  í•¨ìˆ˜: MyRegisterClass()
 //
-//  ¸ñÀû: Ã¢ Å¬·¡½º¸¦ µî·ÏÇÕ´Ï´Ù.
+//  ëª©ì : ì°½ í´ë˜ìŠ¤ë¥¼ ë“±ë¡í•©ë‹ˆë‹¤.
 //
 ATOM MyRegisterClass(HINSTANCE hInstance)
 {
@@ -89,20 +89,20 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
 }
 
 //
-//   ÇÔ¼ö: InitInstance(HINSTANCE, int)
+//   í•¨ìˆ˜: InitInstance(HINSTANCE, int)
 //
-//   ¸ñÀû: ÀÎ½ºÅÏ½º ÇÚµéÀ» ÀúÀåÇÏ°í ÁÖ Ã¢À» ¸¸µì´Ï´Ù.
+//   ëª©ì : ì¸ìŠ¤í„´ìŠ¤ í•¸ë“¤ì„ ì €ì¥í•˜ê³  ì£¼ ì°½ì„ ë§Œë“­ë‹ˆë‹¤.
 //
-//   ¼³¸í:
+//   ì„¤ëª…:
 //
-//        ÀÌ ÇÔ¼ö¸¦ ÅëÇØ ÀÎ½ºÅÏ½º ÇÚµéÀ» Àü¿ª º¯¼ö¿¡ ÀúÀåÇÏ°í
-//        ÁÖ ÇÁ·Î±×·¥ Ã¢À» ¸¸µç ´ÙÀ½ Ç¥½ÃÇÕ´Ï´Ù.
+//        ì´ í•¨ìˆ˜ë¥¼ í†µí•´ ì¸ìŠ¤í„´ìŠ¤ í•¸ë“¤ì„ ì „ì—­ ë³€ìˆ˜ì— ì €ì¥í•˜ê³ 
+//        ì£¼ í”„ë¡œê·¸ë¨ ì°½ì„ ë§Œë“  ë‹¤ìŒ í‘œì‹œí•©ë‹ˆë‹¤.
 //
 BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    HWND hWnd;
 
-   hInst = hInstance; // ÀÎ½ºÅÏ½º ÇÚµéÀ» Àü¿ª º¯¼ö¿¡ ÀúÀåÇÕ´Ï´Ù.
+   hInst = hInstance; // ì¸ìŠ¤í„´ìŠ¤ í•¸ë“¤ì„ ì „ì—­ ë³€ìˆ˜ì— ì €ì¥í•©ë‹ˆë‹¤.
 
    hWnd = CreateWindowEx(WS_EX_TOOLWINDOW, szWindowClass, szTitle, WS_POPUP,
       CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, NULL, NULL, hInstance, NULL);
@@ -119,13 +119,13 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 }
 
 //
-//  ÇÔ¼ö: WndProc(HWND, UINT, WPARAM, LPARAM)
+//  í•¨ìˆ˜: WndProc(HWND, UINT, WPARAM, LPARAM)
 //
-//  ¸ñÀû:  ÁÖ Ã¢ÀÇ ¸Ş½ÃÁö¸¦ Ã³¸®ÇÕ´Ï´Ù.
+//  ëª©ì :  ì£¼ ì°½ì˜ ë©”ì‹œì§€ë¥¼ ì²˜ë¦¬í•©ë‹ˆë‹¤.
 //
-//  WM_COMMAND	- ÀÀ¿ë ÇÁ·Î±×·¥ ¸Ş´º¸¦ Ã³¸®ÇÕ´Ï´Ù.
-//  WM_PAINT	- ÁÖ Ã¢À» ±×¸³´Ï´Ù.
-//  WM_DESTROY	- Á¾·á ¸Ş½ÃÁö¸¦ °Ô½ÃÇÏ°í ¹İÈ¯ÇÕ´Ï´Ù.
+//  WM_COMMAND	- ì‘ìš© í”„ë¡œê·¸ë¨ ë©”ë‰´ë¥¼ ì²˜ë¦¬í•©ë‹ˆë‹¤.
+//  WM_PAINT	- ì£¼ ì°½ì„ ê·¸ë¦½ë‹ˆë‹¤.
+//  WM_DESTROY	- ì¢…ë£Œ ë©”ì‹œì§€ë¥¼ ê²Œì‹œí•˜ê³  ë°˜í™˜í•©ë‹ˆë‹¤.
 //
 //
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
@@ -138,6 +138,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	UINT WM_TASKBARCREATED;
 	POINT pt;
 	int trayret;
+	
+	ZeroMemory(&nid, sizeof nid);
 
 	WM_TASKBARCREATED = RegisterWindowMessage(TEXT("TaskbarCreated"));
 
@@ -155,12 +157,14 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		nid.hIcon = (HICON)LoadImage(hInst, MAKEINTRESOURCE(IDI_SaveEnergy), IMAGE_ICON, 16, 16, LR_VGACOLOR);
 		lstrcpy(nid.szTip, szAppName);
 		Shell_NotifyIcon(NIM_ADD, &nid);
+			
 		g_hMenu = CreatePopupMenu();
-		AppendMenu(g_hMenu, MF_STRING, IDR_SAVEENERGY, L"¿¡³ÊÁö Àı¾à ¹× º¸¾È ½ÇÃµ");
+		AppendMenu(g_hMenu, MF_STRING, IDR_SAVEENERGY, L"ì—ë„ˆì§€ ì ˆì•½ ë° ë³´ì•ˆ ì‹¤ì²œ");
 		AppendMenu(g_hMenu, MF_MENUBREAK, NULL, NULL);
-		AppendMenu(g_hMenu, MF_STRING, IDM_ABOUT, L"´ëÇÏ¿©...");
+		AppendMenu(g_hMenu, MF_STRING, IDM_ABOUT, L"ëŒ€í•˜ì—¬...");
 		AppendMenu(g_hMenu, MF_MENUBREAK, NULL, NULL);
-		AppendMenu(g_hMenu, MF_STRING, IDM_EXIT, L"ÇÁ·Î±×·¥ Á¾·á");
+		AppendMenu(g_hMenu, MF_STRING, IDM_EXIT, L"í”„ë¡œê·¸ë¨ ì¢…ë£Œ");
+			
 		break;
 	case WM_USER:
 		if (lParam == WM_LBUTTONDBLCLK)
@@ -187,7 +191,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	case WM_COMMAND:
 		wmId    = LOWORD(wParam);
 		wmEvent = HIWORD(wParam);
-		// ¸Ş´º ¼±ÅÃÀ» ±¸¹® ºĞ¼®ÇÕ´Ï´Ù.
+		// ë©”ë‰´ ì„ íƒì„ êµ¬ë¬¸ ë¶„ì„í•©ë‹ˆë‹¤.
 		switch (wmId)
 		{
 		case IDM_ABOUT:
@@ -199,7 +203,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
 			break;
 		case IDM_EXIT:
-			Shell_NotifyIcon(NIM_DELETE, &nid);
 			DestroyWindow(hWnd);
 			break;
 		default:
@@ -208,12 +211,17 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		break;
 	case WM_PAINT:
 		hdc = BeginPaint(hWnd, &ps);
-		// TODO: ¿©±â¿¡ ±×¸®±â ÄÚµå¸¦ Ãß°¡ÇÕ´Ï´Ù.
+		// TODO: ì—¬ê¸°ì— ê·¸ë¦¬ê¸° ì½”ë“œë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤.
 		EndPaint(hWnd, &ps);
 		break;
 	case WM_DESTROY:
+		nid.cbSize = sizeof(nid);
+		nid.hWnd = hWnd;
+		nid.uID = 0;			
 		Shell_NotifyIcon(NIM_DELETE, &nid);
+			
 		PostQuitMessage(0);
+			
 		break;
 	default:
 		return DefWindowProc(hWnd, message, wParam, lParam);
@@ -221,7 +229,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	return 0;
 }
 
-// Á¤º¸ ´ëÈ­ »óÀÚÀÇ ¸Ş½ÃÁö Ã³¸®±âÀÔ´Ï´Ù.
+// ì •ë³´ ëŒ€í™” ìƒìì˜ ë©”ì‹œì§€ ì²˜ë¦¬ê¸°ì…ë‹ˆë‹¤.
 INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	UNREFERENCED_PARAMETER(lParam);
